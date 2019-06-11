@@ -4,25 +4,98 @@
 
 Por mais que existam diversos styleguides, nós utilizamos o [StandardJS](https://standardjs.com/). É simples, não tem configuração e formata seu código _automagicamente_. Caso você queira integrar com o seu editor de código favorito, [aqui tem uma lista de opções](https://standardjs.com/#are-there-text-editor-plugins).
 
-### 2. Formatação
+### 2. Typescript
 
-Por convenção, limitamos nossos arquivos a 80 colunas. Facilita a escrita e leitura do código.
+A tipagem do javascript é essencial para mantermos projetos de grande porte. Nossos boilerplates já entregam a configuração necessária para o melhor funcionamento do TS.
 
-### 3. Estrutura do projeto
+### 3. Testes
+>TODO
 
-Utilize [este exemplo](https://github.com/kaueDM/react-native-101#4-estrutura-de-pastas) como modelo, adaptando de acordo com as suas necessidades.
+### 4. Camadas definidas
 
-### 4. Functional Programming
+As camadas de renderização e dados externos (APIs) são isoladas. O middleman para conectar as duas é o `redux-saga`
+
+### 5. Redux
+
+Usamos `redux-sagas` e seguimos [`ducks-modular-redux`](https://github.com/erikras/ducks-modular-redux). Pra reduzir o boilerplate, preferimos o `reduxsauce`.
+
+### 6. Functional Programming
 
 Utilizar sempre que possível os conceitos de **Functional Programming** (FP). Estamos migrando nosso mindset para uma codebase 100% funcional. Em caso de dúvidas, [consulte esse link](https://medium.com/dailyjs/functional-js-1-introduction-7908bfe5ef8d).
 
-### 5. Testes
 
->TODO
+### 7. Formatação de arquivos
 
-## Pacotes
+Limitamos nossos arquivos a 80 colunas e, sempre que possível, até 50 linhas. Essas duas regras facilitam a escrita e leitura do código.
 
-Pacotes javascript que usamos nos nossos projetos:
+### 8. Estrutura do projeto
+>WIP
+```
+.
+├── 📄 index.js
+├── 📄 package.json
+├── ...
+└── 📁 src
+    ├── 📁 assets
+    │   ├── 📁 images
+    │   │   └── 📄 logo.png
+    │   │
+    │   └── 📁 svg
+    │       └── 📄 tree.svg
+    │
+    ├── 📁 app
+    │   ├── 📁 components
+    │   │   └── 📁 Button
+    │   │       ├── 📄 index.ts
+    │   │       ├── 📄 Button.tsx
+    │   │       ├── 📄 Button.story.ts
+    │   │       └── 📄 ButtonInterface.ts
+    │   │
+    │   └── 📁 screens
+    │       └── 📁 Home
+    │           ├── 📄 index.ts
+    │           ├── 📄 Home.tsx
+    │           └── 📄 HomeInterface.ts
+    │
+    ├── 📁 config
+    │   ├── 📁 router
+    │   │   ├── 📄 index.ts
+    │   │   ├── 📄 router.ts
+    │   │   └── 📄 routeList.ts
+    │   │
+    │   └── 📁 themes
+    │       ├── 📄 index.ts
+    │       ├── 📄 MyTheme.ts
+    │       ├── 📄 AnotherTheme.ts
+    │       └── 📄 ThemeInterface.d.ts
+    │
+    ├── 📁 core
+    │   ├── 📁 redux
+    │   │   ├── 📁 reducers
+    │   │   │   ├── 📄 index.ts
+    │   │   │   └── 📄 products.ts
+    │   │   │
+    │   │   ├── 📁 sagas
+    │   │   │   ├── 📄 index.ts
+    │   │   │   └── 📄 products.ts
+    │   │   │
+    │   │   └── 📁 store
+    │   │       └── 📄 index.ts
+    │   │
+    │   └── 📁 services
+    │       └── 📁 API
+    │           ├── 📄 index.ts
+    │           └── 📄 someEndpoint.ts
+    │
+    └── 📁 utils
+        └── 📁 foo
+            ├── 📄 foo.ts
+            └── 📄 index.ts
+```
+
+### 9. Pacotes
+
+Pacotes javascript que usamos em praticamente todos os projetos:
 
 * `formik`: Gestão de formulários;
 * `formik-enhancer`/`coreui-formik-enhancer`: Automações para o `formik`;
@@ -30,9 +103,3 @@ Pacotes javascript que usamos nos nossos projetos:
 * `ramda`: Canivete suíço de funções para arrays e objetos;
 * `date-fns`: Manipulação de datas;
 * `react-toastify`: Notificações.
-
-## Próximos passos
-
-Tecnologias que adotaremos como padrão em todos os projetos (WIP):
-* `typescript`: Javascript typing;
-* `redux-saga`: Gestão de estado e fluxo de dados assíncronos.
