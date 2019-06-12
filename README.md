@@ -9,7 +9,7 @@ Por mais que existam diversos styleguides, nós utilizamos o [StandardJS](https:
 A tipagem do javascript é essencial para mantermos projetos de grande porte. Nossos boilerplates já entregam a configuração necessária para o melhor funcionamento do TS.
 
 ### 3. Testes
->TODO
+Testes serão a base para nos trazer mais confiabilidade, segurança e qualidade nos nossos projetos. Para isso, devemos testar todos os nossos arquivos pensando no acrônimo FIRST, onde os testes serão: Fast, Independent, Repeatable, Self-validating, Timely. O padrão será de testes de snapshot e testes unitários para todos os components, testes de integração para features e testes e2e para validar o caminho feliz das features. Aqui está uma introdução sobre [testes](https://docs.google.com/presentation/d/105MQBLz6NlDKfOKVseN5Wz8pZviXnFu92gsdv8efwBs/edit?usp=sharing) e um [exemplo](https://github.com/leonardorpr/talk-react-testing) simples de como aplicá-los em nossos projetos.
 
 ### 4. Camadas definidas
 
@@ -87,10 +87,23 @@ Limitamos nossos arquivos a 80 colunas e, sempre que possível, até 50 linhas. 
     │           ├── 📄 index.ts
     │           └── 📄 someEndpoint.ts
     │
-    └── 📁 utils
-        └── 📁 foo
-            ├── 📄 foo.ts
-            └── 📄 index.ts
+    ├── 📁 specs
+    │   ├── 📁 units
+    │   │   └── 📁 Button
+    │   │       └─── 📄 Button.spec.tsx
+    │   │
+    │   ├── 📁 integrations
+    │   │    └── 📁 SignIn
+    │   │        └─── 📄 SignIn.spec.tsx
+    │   │
+    │   └── 📁 e2e
+    │       └── 📁 SignIn
+    │           └─── 📄 SignIn.spec.tsx
+    │
+    ├── 📁 utils
+    │    └── 📁 foo
+    │        ├── 📄 foo.ts
+    │        └── 📄 index.ts
 ```
 
 ### 9. Pacotes
@@ -103,3 +116,4 @@ Pacotes javascript que usamos em praticamente todos os projetos:
 * `ramda`: Canivete suíço de funções para arrays e objetos;
 * `date-fns`: Manipulação de datas;
 * `react-toastify`: Notificações.
+* `styled-components`: Para criar os styles de components
